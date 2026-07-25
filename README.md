@@ -1,11 +1,12 @@
-# YouTube AI Assistant
-
-Ask questions about any YouTube video's content. Paste a link, and the app pulls the transcript, indexes it, and answers questions about it in a chat interface — all running locally via [Ollama](https://ollama.com), no external API keys required.
-
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688)
 ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C)
 ![Ollama](https://img.shields.io/badge/Ollama-local%20LLM-000000)
+# YouTube AI Assistant
+
+Ask questions about any YouTube video's content. Paste a link, and the app pulls the transcript, indexes it, and answers questions about it in a chat interface — all running locally via [Ollama](https://ollama.com), no external API keys required.
+
+
 
 <!-- Add a screenshot or GIF of the app in use here, e.g.: -->
 <!-- ![demo](docs/demo.gif) -->
