@@ -8,8 +8,7 @@ Ask questions about any YouTube video's content. Paste a link, and the app pulls
 
 
 
-<!-- Add a screenshot or GIF of the app in use here, e.g.: -->
-<!-- ![demo](docs/demo.gif) -->
+![demo](docs/demo.gif)
 
 ## How it works
 
