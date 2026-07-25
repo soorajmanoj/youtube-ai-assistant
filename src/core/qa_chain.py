@@ -5,6 +5,7 @@ from langchain_ollama import ChatOllama
 
 
 def create_qa_chain(vectorstore):
+    """Create a question-answering chain using the provided vectorstore."""
     llm = ChatOllama(model="llama3", temperature=0.3,
                      base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"))
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)

@@ -5,6 +5,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 import os
 
 def build_vectorstore(transcript_text: str):
+    """Build a FAISS vectorstore from the provided transcript text."""
     documents = [Document(page_content=transcript_text)]
     splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=200)
     docs = splitter.split_documents(documents)

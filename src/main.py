@@ -11,7 +11,7 @@ from .core.qa_chain import create_qa_chain
 
 load_dotenv()
 
-app = FastAPI(title="YouTube Q&A Bot", version="1.0.0")
+app = FastAPI(title="YouTube Q&A Bot", version="1.0.0") 
 
 STATIC_DIR = Path(__file__).parent.parent / "static"
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
@@ -21,15 +21,18 @@ sessions: dict[str, dict] = {}
 
 
 class VideoRequest(BaseModel):
+    """Request model for processing a YouTube video."""
     url: str
 
 
 class QuestionRequest(BaseModel):
+    """Request model for asking a question about a processed video."""
     session_id: str
     question: str
 
 
 def _is_connection_error(e: Exception) -> bool:
+    """Check if the exception is related to a connection error."""
     msg = str(e).lower()
     return "connection" in msg or "connect" in msg or "refused" in msg
 

@@ -7,6 +7,7 @@ from youtube_transcript_api._errors import (
 
 
 def extract_video_id(url: str) -> str:
+    """Extract the video ID from a YouTube URL."""
     if not url or not url.strip():
         raise ValueError("No URL provided.")
     if "v=" in url:
@@ -20,6 +21,7 @@ def extract_video_id(url: str) -> str:
 
 
 def get_transcript(url: str) -> str:
+    """Fetch the transcript for a given YouTube video URL."""
     video_id = extract_video_id(url)
 
     try:
