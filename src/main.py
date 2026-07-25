@@ -1,5 +1,8 @@
 import uuid
+from pathlib import Path
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from .core.transcript import get_transcript
@@ -9,6 +12,9 @@ from .core.qa_chain import create_qa_chain
 load_dotenv()
 
 app = FastAPI(title="YouTube Q&A Bot", version="1.0.0")
+
+STATIC_DIR = Path(__file__).parent.parent / "static"
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 # Keyed by session_id, so multiple videos/users don't clobber each other.
 sessions: dict[str, dict] = {}
@@ -21,6 +27,11 @@ class VideoRequest(BaseModel):
 class QuestionRequest(BaseModel):
     session_id: str
     question: str
+
+
+@app.get("/")
+async def serve_frontend():
+    return FileResponse(STATIC_DIR / "index.html")
 
 
 @app.post("/process")
